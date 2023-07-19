@@ -30,7 +30,7 @@ class Target(
     private var effect: Effect = DEFAULT_EFFECT
     private var overlay: View? = null
     private var listener: OnTargetListener? = null
-    private var clicklable: Boolean = true
+    private var clickable: Boolean = true
 
     /**
      * Sets a pointer to start a [Target].
