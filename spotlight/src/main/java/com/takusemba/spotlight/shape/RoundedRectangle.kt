@@ -22,7 +22,7 @@ class RoundedRectangle @JvmOverloads constructor(
   private lateinit var rect: RectF 
 
   override fun draw(canvas: Canvas, point: PointF, value: Float, paint: Paint) {
-    val rect = constructRectF(value, point)
+    rect = constructRectF(value, point)
     canvas.drawRoundRect(rect, radius, radius, paint)
   }
 
