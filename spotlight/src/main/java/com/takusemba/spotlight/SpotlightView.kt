@@ -8,6 +8,7 @@ import android.animation.ValueAnimator
 import android.animation.ValueAnimator.AnimatorUpdateListener
 import android.animation.ValueAnimator.INFINITE
 import android.animation.ValueAnimator.ofFloat
+import android.view.MotionEvent
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
