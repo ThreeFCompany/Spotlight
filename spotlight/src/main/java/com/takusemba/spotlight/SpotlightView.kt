@@ -49,6 +49,32 @@ internal class SpotlightView @JvmOverloads constructor(
   init {
     setWillNotDraw(false)
     setLayerType(View.LAYER_TYPE_HARDWARE, null)
+
+        /**
+     * Makes it possible to pass clicks through [SpotlightView] to underlying views.
+     */
+    setOnTouchListener(object : OnTouchListener {
+      override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+        return if (target?.clickable == true) {
+          if (isInsideTarget(event)) {
+            v?.performClick()
+            false
+          } else {
+            true
+          }
+        } else true
+      }
+
+      private fun isInsideTarget(event: MotionEvent?): Boolean {
+        event?.let {
+          val pointF = PointF(it.x, it.y)
+          target?.let {
+            return it.shape.contains(pointF)
+          }
+        }
+        return false
+      }
+    })
   }
 
   override fun onDraw(canvas: Canvas) {
